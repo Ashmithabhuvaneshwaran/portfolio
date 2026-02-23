@@ -554,4 +554,4 @@ if (cursorDot && cursorRing) {
 
 console.log('%cWelcome to Ashmitha\'s Portfolio!', 'font-size: 20px; color: #3498DB; font-weight: bold;');
 console.log('%cLooking under the hood? I love curious developers!', 'font-size: 14px; color: #E8B456;');
-console.log('%cCheck out my GitHub: https://github.com/Ashmithabuvaneshwaran/', 'font-size: 12px; color: #A0A8B8;');
+console.log('%cCheck out my GitHub: https://github.com/Ashmithabuvaneshwaran', 'font-size: 12px; color: #A0A8B8;');

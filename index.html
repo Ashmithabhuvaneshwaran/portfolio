@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashmitha B - Full Stack Developer & Designer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bpmf+Zihi+Kai+Std&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass">
+        <div class="container-xl">
+            <a class="navbar-brand fw-bold" href="#home">Ashmitha</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container-xl h-100">
+            <div class="row align-items-center justify-content-between h-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <div class="floating-shape shape-1"></div>
+                        <div class="floating-shape shape-2"></div>
+                        
+                        <h1 class="hero-title">
+                            Hi, I'm <span class="gradient-text">Ashmitha</span>
+                        </h1>
+                        <p class="hero-subtitle">Full Stack Developer & UI/UX Enthusiast</p>
+                        <p class="hero-description">
+                            Crafting beautiful, functional web experiences with cutting-edge technology. 
+                            Passionate about clean code, elegant design, and creating real-world solutions.
+                        </p>
+                        
+                        <div class="hero-cta-buttons">
+                            <button class="btn btn-primary btn-lg" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
+                                View My Work
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                                Get in Touch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+                    <div class="hero-visual">
+                        <div class="hero-image-wrapper">
+                            <div class="hero-image-glow"></div>
+                            <div class="hero-image-ring"></div>
+                            <img src="images/profile.png" alt="Ashmitha B" class="hero-profile-img">
+                            <div class="hero-image-dots"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-intro-text mb-4">
+                        I'm a motivated Computer Science student with hands-on experience in web and full-stack development. 
+                        I'm passionate about building elegant, scalable solutions that solve real-world problems using modern 
+                        technologies.
+                    </p>
+
+                    <div class="glass-card p-4 mb-4">
+                        <h4 class="mb-3">
+                            <span class="card-icon">🎓</span> Education
+                        </h4>
+                        <p class="mb-2 fw-bold" style="color: var(--text-primary);">B.Tech in Computer Science and Business Systems</p>
+                        <p class="mb-2 text-muted">K.S. Rangasamy College of Technology</p>
+                        <p class="mb-0 fw-bold" style="color: var(--primary-color);">CGPA: 7.06%</p>
+                    </div>
+
+                    <div class="glass-card p-4">
+                        <h4 class="mb-3">
+                            <span class="card-icon">💼</span> Experience
+                        </h4>
+                        <p class="mb-2 fw-bold" style="color: var(--text-primary);">2 Internships Completed</p>
+                        <ul class="mb-0" style="padding-left: 1.5rem; color: var(--text-secondary);">
+                            <li>Web Development at Informatronics (2025)</li>
+                            <li>Full Stack Development at TechNuke (2024)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-container">
+                        <span class="skill-badge-new">Java</span>
+                        <span class="skill-badge-new">HTML & CSS</span>
+                        <span class="skill-badge-new">JavaScript</span>
+                        <span class="skill-badge-new">React</span>
+                        <span class="skill-badge-new">Flask</span>
+                        <span class="skill-badge-new">MongoDB</span>
+                        <span class="skill-badge-new">MySQL</span>
+                        <span class="skill-badge-new">Bootstrap</span>
+                        <span class="skill-badge-new">UI/UX Design</span>
+                        <span class="skill-badge-new">Figma</span>
+                        <span class="skill-badge-new">GitHub</span>
+                        <span class="skill-badge-new">Full Stack</span>
+                    </div>
+
+                    <div class="quote-card mt-5 p-4">
+                        <p class="mb-0" style="font-style: italic; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8;">
+                            "A programming language is for thinking about programs, not for expressing programs you've already thought of. It should be a pencil, not a pen."
+                        </p>
+                    </div>
+
+                    <div class="certifications-card mt-4 p-4">
+                        <h4 class="mb-3">
+                            <span class="card-icon">🏆</span> Certifications
+                        </h4>
+                        <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin: 0;">
+                            <li>Krun Hackathon Participation</li>
+                            <li>Java Mastery - Udemy</li>
+                            <li>Introduction to IoT - NPTEL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container-xl">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Showcasing my best work</p>
+            
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #1a3a5c 0%, #2D3E50 50%, #3498DB 100%);">
+                            <div class="project-tag">Full Stack</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>College Hub System</h3>
+                            <p class="project-description">
+                                A comprehensive centralized system for managing college operations, students, faculty, 
+                                and resources with role-based access control.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">MySQL</span>
+                            </div>
+                            <button class="btn btn-link btn-sm project-link" onclick="viewCaseStudy('college-hub')">
+                                View Case Study →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #2D3E50 0%, #E8B456 50%, #3498DB 100%);">
+                            <div class="project-tag">Full Stack</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Library Management System</h3>
+                            <p class="project-description">
+                                A modern library system with book search, borrowing, real-time availability tracking, 
+                                and role-based access for librarians and members.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Express.js</span>
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Node.js</span>
+                            </div>
+                            <button class="btn btn-link btn-sm project-link" onclick="viewCaseStudy('library-system')">
+                                View Case Study →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <p class="text-muted">More projects coming soon...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Modal -->
+    <div id="caseStudyModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="caseStudyTitle">Case Study</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="caseStudyContent">
+                    <!-- Content will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section-v2">
+        <!-- Animated background particles -->
+        <div class="contact-particles">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="container-xl">
+            <div class="contact-v2-header">
+                <span class="contact-badge">💬 Let's Talk</span>
+                <h2 class="contact-v2-title">Get in <span class="gradient-text">Touch</span></h2>
+                <p class="contact-v2-subtitle">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-v2-grid">
+                <!-- Left: Contact Cards -->
+                <div class="contact-v2-left">
+                    <div class="contact-card-v2 card-email">
+                        <div class="card-v2-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                        <div class="card-v2-content">
+                            <h4>Email Me</h4>
+                            <a href="mailto:ashmithabhvaneshwaran@gmail.com">ashmithabhvaneshwaran@gmail.com</a>
+                        </div>
+                        <div class="card-v2-arrow">→</div>
+                    </div>
+
+                    <div class="contact-card-v2 card-phone">
+                        <div class="card-v2-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                        <div class="card-v2-content">
+                            <h4>Call Me</h4>
+                            <a href="tel:9043714619">+91 90437 14619</a>
+                        </div>
+                        <div class="card-v2-arrow">→</div>
+                    </div>
+
+                    <div class="contact-card-v2 card-location">
+                        <div class="card-v2-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <div class="card-v2-content">
+                            <h4>Location</h4>
+                            <p>Tamil Nadu, India</p>
+                        </div>
+                        <div class="card-v2-arrow">→</div>
+                    </div>
+
+                    <!-- Social Row -->
+                    <div class="contact-socials-v2">
+                        <a href="https://www.linkedin.com/in/ashmitha-bhuvaneshwaran-9b36a5293/" target="_blank" class="social-pill" title="LinkedIn">
+                            <span class="social-pill-icon">in</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/Ashmithabhuvaneshwaran" target="_blank" class="social-pill" title="GitHub">
+                            <span class="social-pill-icon">gh</span>
+                            <span>GitHub</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="contact-v2-right">
+                    <div class="contact-form-card">
+                        <h3 class="form-card-title">Send a Message</h3>
+                        <form id="contactForm" class="contact-form-v2">
+                            <div class="form-row-v2">
+                                <div class="form-group-v2">
+                                    <label>Your Name</label>
+                                    <input type="text" placeholder="Ashmitha B" required>
+                                </div>
+                                <div class="form-group-v2">
+                                    <label>Your Email</label>
+                                    <input type="email" placeholder="ashmithabhvaneshwaran@gmail.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group-v2">
+                                <label>Subject</label>
+                                <input type="text" placeholder="Project Inquiry" required>
+                            </div>
+                            <div class="form-group-v2">
+                                <label>Message</label>
+                                <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-send-v2">
+                                <span>Send Message</span>
+                                <span class="btn-send-icon">✈️</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-xl">
+            <p class="text-center">
+                © 2026 Ashmitha B. Designed & Built with care.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -549,6 +549,145 @@ if (cursorDot && cursorRing) {
 }
 
 // ==========================================
+// CAROUSEL FUNCTIONALITY - INFINITE LOOP WITH AUTO-PLAY
+// ==========================================
+
+let currentCarouselPosition = 0;
+const carouselTrack = document.getElementById('carouselTrack');
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const originalSlides = 5; // Number of original slides before cloning
+const totalSlides = carouselSlides.length; // 10 (5 original + 5 cloned)
+let visibleSlides = 3;
+let autoPlayTimer;
+
+// Update visible slides based on screen width
+function updateVisibleSlides() {
+    if (window.innerWidth <= 1024) {
+        visibleSlides = 2;
+    } else if (window.innerWidth <= 480) {
+        visibleSlides = 1;
+    } else {
+        visibleSlides = 3;
+    }
+}
+
+function slideCarousel(direction) {
+    updateVisibleSlides();
+    
+    // Update position
+    currentCarouselPosition += direction;
+    
+    // Calculate the maximum position (can show all cloned slides)
+    const maxPosition = originalSlides;
+    
+    // Update carousel position
+    const slidePercentageWidth = (100 / visibleSlides) * currentCarouselPosition;
+    const offset = -slidePercentageWidth;
+    
+    carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+    carouselTrack.style.transform = `translateX(${offset}%)`;
+    
+    // When we reach the cloned slides, seamlessly reset to beginning
+    if (currentCarouselPosition > maxPosition) {
+        setTimeout(() => {
+            carouselTrack.style.transition = 'none';
+            currentCarouselPosition = 0;
+            carouselTrack.style.transform = `translateX(0%)`;
+        }, 500);
+    }
+}
+
+// Auto-play carousel - keeps looping infinitely
+function autoPlayCarousel() {
+    slideCarousel(1);
+    autoPlayTimer = setTimeout(autoPlayCarousel, 4000); // Change slide every 4 seconds
+}
+
+// Stop auto-play when user manually controls
+function stopAutoPlay() {
+    clearTimeout(autoPlayTimer);
+}
+
+// Resume auto-play
+function resumeAutoPlay() {
+    autoPlayTimer = setTimeout(autoPlayCarousel, 4000);
+}
+
+// Add event listeners to carousel controls
+document.querySelectorAll('.carousel-control').forEach(control => {
+    control.addEventListener('click', () => {
+        stopAutoPlay();
+        resumeAutoPlay();
+    });
+});
+
+// Pause auto-play on carousel hover
+const carouselContainer = document.querySelector('.carousel-container');
+if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+    carouselContainer.addEventListener('mouseleave', resumeAutoPlay);
+}
+
+// Handle window resize
+window.addEventListener('resize', updateVisibleSlides);
+
+// Initialize and start auto-play
+updateVisibleSlides();
+autoPlayCarousel();
+
+// ==========================================
+// LIGHTBOX FUNCTIONALITY
+// ==========================================
+
+function openLightbox(imageSrc, imageTitle) {
+    const modal = document.getElementById('lightboxModal');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    
+    lightboxImage.src = imageSrc;
+    lightboxTitle.textContent = imageTitle;
+    modal.classList.add('active');
+    
+    // Close carousel auto-play when lightbox is open
+    stopAutoPlay();
+    
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+    
+    // Hide navbar
+    document.body.classList.add('lightbox-open');
+}
+
+function closeLightbox() {
+    const modal = document.getElementById('lightboxModal');
+    modal.classList.remove('active');
+    
+    // Resume carousel auto-play
+    resumeAutoPlay();
+    
+    // Re-enable body scroll
+    document.body.style.overflow = 'auto';
+    
+    // Show navbar
+    document.body.classList.remove('lightbox-open');
+}
+
+// Close lightbox when clicking outside the image
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('lightboxModal');
+    if (event.target === modal) {
+        closeLightbox();
+    }
+});
+
+// Close lightbox with Escape key
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// ==========================================
 // CONSOLE EASTER EGG
 // ==========================================
 

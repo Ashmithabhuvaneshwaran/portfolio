@@ -80,7 +80,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section animated-bg-about">
         <div class="container-xl">
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-up">
@@ -150,8 +150,161 @@
         </div>
     </section>
 
+    <!-- Slideshow Section -->
+    <section id="slideshow" class="slideshow-section animated-bg-contact">
+        <div class="container-xl">
+            <h2 class="section-title">Work Gallery</h2>
+            <p class="section-subtitle">My achievements and milestones
+                Flip the cards to see the proof of my accomplishments! Each card represents a significant milestone in my journey as a developer, showcasing certifications, hackathon participations, and internship experiences that have shaped my skills and passion for technology.
+            </p>
+            
+            <div class="carousel-container">
+                <!-- Navigation Arrows -->
+                <button class="carousel-control carousel-prev" onclick="slideCarousel(-1)">❮</button>
+                
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Slides -->
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">TechNuke Internship</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/Ashmitha intern certificate.jpeg" alt="TechNuke Internship" class="lightbox-trigger" onclick="openLightbox('images/Ashmitha intern certificate.jpeg', 'TechNuke Internship')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Java Mastery - Udemy</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/java mastery.jpeg" alt="Java Mastery Certificate" class="lightbox-trigger" onclick="openLightbox('images/java mastery.jpeg', 'Java Mastery - Udemy')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Krun Hackathon</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/kruu hackathon.jpeg" alt="Krun Hackathon" class="lightbox-trigger" onclick="openLightbox('images/kruu hackathon.jpeg', 'Krun Hackathon')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Joy of Computing - NPTEL</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/nptel - joy of computing.jpeg" alt="Joy of Computing" class="lightbox-trigger" onclick="openLightbox('images/nptel - joy of computing.jpeg', 'Joy of Computing - NPTEL')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Introduction to IoT - NPTEL</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/Introduction to Internet of Things.jpeg" alt="IoT Certificate" class="lightbox-trigger" onclick="openLightbox('images/Introduction to Internet of Things.jpeg', 'Introduction to IoT - NPTEL')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloned Slides for Looping -->
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">TechNuke Internship</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/Ashmitha intern certificate.jpeg" alt="TechNuke Internship" class="lightbox-trigger" onclick="openLightbox('images/Ashmitha intern certificate.jpeg', 'TechNuke Internship')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Java Mastery - Udemy</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/java mastery.jpeg" alt="Java Mastery Certificate" class="lightbox-trigger" onclick="openLightbox('images/java mastery.jpeg', 'Java Mastery - Udemy')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Krun Hackathon</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/kruu hackathon.jpeg" alt="Krun Hackathon" class="lightbox-trigger" onclick="openLightbox('images/kruu hackathon.jpeg', 'Krun Hackathon')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Joy of Computing - NPTEL</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/nptel - joy of computing.jpeg" alt="Joy of Computing" class="lightbox-trigger" onclick="openLightbox('images/nptel - joy of computing.jpeg', 'Joy of Computing - NPTEL')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-title">Introduction to IoT - NPTEL</div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="images/Introduction to Internet of Things.jpeg" alt="IoT Certificate" class="lightbox-trigger" onclick="openLightbox('images/Introduction to Internet of Things.jpeg', 'Introduction to IoT - NPTEL')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control carousel-next" onclick="slideCarousel(1)">❯</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section animated-bg-projects">
         <div class="container-xl">
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">Showcasing my best work</p>
@@ -231,7 +384,7 @@
     </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section-v2">
+    <section id="contact" class="contact-section-v2 animated-bg-contact">
         <!-- Animated background particles -->
         <div class="contact-particles">
             <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -330,6 +483,15 @@
             </p>
         </div>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <div id="lightboxTitle" class="lightbox-title"></div>
+        </div>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

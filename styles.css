@@ -585,6 +585,11 @@ p {
     text-align: center;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary-color);
+    animation: typewriter 3s steps(40, end) once, cursorBlink 0.75s step-end infinite;
+    animation-fill-mode: both;
 }
 
 .section-subtitle {
@@ -1008,6 +1013,437 @@ p {
     background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, rgba(232, 180, 86, 0.2) 100%);
     border-color: var(--primary-color);
     transform: translateY(-2px);
+}
+
+/* ==========================================
+   SLIDESHOW SECTION
+   ========================================== */
+
+.slideshow-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0F1419 0%, #162B3F 50%, #1A2D42 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background Gallery */
+.animated-bg-gallery {
+    background: 
+        linear-gradient(135deg, #0F1419 0%, #162B3F 50%, #1A2D42 100%),
+        radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(232, 180, 86, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 212, 170, 0.08) 0%, transparent 50%);
+    background-size: 200% 200%, 150% 150%, 150% 150%, 150% 150%;
+    background-position: 0% 50%, 0% 0%, 100% 100%, 50% 50%;
+    animation: 
+        gradient-shift 10s ease infinite,
+        bgFloat1 15s ease-in-out infinite,
+        bgFloat2 18s ease-in-out infinite,
+        bgFloat3 20s ease-in-out infinite;
+    position: relative;
+}
+
+.animated-bg-gallery::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(232, 180, 86, 0.08) 0%, transparent 50%);
+    animation: rotateBgGradient 30s linear infinite;
+    pointer-events: none;
+}
+
+.animated-bg-gallery::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(52, 152, 219, 0.02) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(52, 152, 219, 0.02) 50%, transparent 70%);
+    background-size: 60px 60px, 60px 60px;
+    animation: 
+        slidePattern 20s linear infinite,
+        slidePatternAlt 25s linear infinite reverse;
+    pointer-events: none;
+}
+
+.animated-bg-gallery > * {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes bgFloat1 {
+    0%, 100% {
+        background-position: 0% 50%, 0% 0%, 100% 100%, 50% 50%;
+    }
+    25% {
+        background-position: 50% 0%, 25% 25%, 75% 75%, 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%, 50% 0%, 50% 100%, 50% 50%;
+    }
+    75% {
+        background-position: 50% 100%, 25% 75%, 75% 25%, 50% 50%;
+    }
+}
+
+@keyframes bgFloat2 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(30px, -40px);
+    }
+    50% {
+        transform: translate(-50px, 30px);
+    }
+    75% {
+        transform: translate(40px, 50px);
+    }
+}
+
+@keyframes bgFloat3 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-30px, 40px) scale(1.05);
+    }
+}
+
+@keyframes rotateBgGradient {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slidePatternAlt {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 60px 60px, -60px -60px;
+    }
+}
+
+.carousel-container {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    background: linear-gradient(135deg, rgba(26, 35, 50, 0.8) 0%, rgba(26, 45, 66, 0.9) 100%);
+    box-shadow: var(--shadow-lg);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+}
+
+.carousel-slide {
+    flex: 0 0 calc(33.333% - 0.85rem);
+    min-width: 0;
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.carousel-slide:nth-child(1) { animation-delay: 0.1s; }
+.carousel-slide:nth-child(2) { animation-delay: 0.2s; }
+.carousel-slide:nth-child(3) { animation-delay: 0.3s; }
+.carousel-slide:nth-child(4) { animation-delay: 0.4s; }
+.carousel-slide:nth-child(5) { animation-delay: 0.5s; }
+
+/* Flip Card Container */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 280px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(52, 152, 219, 0.3), inset 0 0 20px rgba(232, 180, 86, 0.1);
+    border: 2px solid rgba(52, 152, 219, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.flip-card:hover .flip-card-front, 
+.flip-card:hover .flip-card-back {
+    box-shadow: var(--shadow-md), 0 0 30px rgba(52, 152, 219, 0.6), inset 0 0 30px rgba(232, 180, 86, 0.2);
+    border: 2px solid rgba(52, 152, 219, 0.8);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, rgba(26, 35, 50, 0.9) 0%, rgba(26, 45, 66, 1) 100%);
+    color: white;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, rgba(26, 35, 50, 0.8) 0%, rgba(26, 45, 66, 0.9) 100%);
+    transform: rotateY(180deg);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 1.5rem;
+    text-align: center;
+    line-height: 1.5;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    display: block;
+}
+
+.carousel-control {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(52, 152, 219, 0.8);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.carousel-control:hover {
+    background: rgba(52, 152, 219, 1);
+    transform: scale(1.12);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+}
+
+.carousel-control:active {
+    transform: scale(0.95);
+}
+
+.carousel-prev, .carousel-next {
+    position: relative;
+}
+
+/* Responsive Carousel */
+@media (max-width: 1024px) {
+    .carousel-slide {
+        flex: 0 0 calc(50% - 0.65rem);
+    }
+
+    .flip-card {
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slideshow-section {
+        padding: 60px 0;
+    }
+
+    .carousel-container {
+        gap: 1rem;
+    }
+
+    .carousel-track {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .carousel-slide {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+
+    .flip-card {
+        height: 200px;
+    }
+
+    .carousel-control {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        gap: 0.75rem;
+    }
+
+    .carousel-track {
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .carousel-slide {
+        flex: 0 0 100%;
+    }
+
+    .flip-card {
+        height: 250px;
+    }
+
+    .carousel-control {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .card-title {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+    }
+}
+
+/* ==========================================
+   CERTIFICATES SECTION
+   ========================================== */
+
+.certificates-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #162B3F 0%, #0F1419 50%, #1A2D42 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite;
+}
+
+.certificates-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.certificate-item {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.certificate-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.certificate-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.certificate-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.certificate-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    height: 100%;
+    cursor: pointer;
+}
+
+.certificate-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(52, 152, 219, 0.25);
+    border-color: var(--primary-color);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition);
+}
+
+.certificate-card:hover .certificate-image {
+    transform: scale(1.05);
+}
+
+.certificate-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 20, 25, 0.95) 50%, rgba(15, 20, 25, 1) 100%);
+    padding: 2rem;
+    color: white;
+    transition: all var(--transition);
+    transform: translateY(100px);
+}
+
+.certificate-card:hover .certificate-overlay {
+    transform: translateY(0);
+}
+
+.certificate-overlay h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+}
+
+.certificate-overlay p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ==========================================
@@ -1841,6 +2277,15 @@ p {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -1931,6 +2376,68 @@ p {
     100% {
         color: #3498DB;
     }
+}
+
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes cursorBlink {
+    0%, 49% {
+        border-right-color: var(--primary-color);
+    }
+    50%, 100% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply 2-side animations to sections */
+.about-section .col-lg-6:nth-child(1),
+.projects-section .col-lg-6:nth-child(1),
+.contact-section-v2 .col-lg-6:nth-child(1) {
+    animation: slideInFromLeft 0.8s ease-out 0.3s both;
+}
+
+.about-section .col-lg-6:nth-child(2),
+.projects-section .col-lg-6:nth-child(2),
+.contact-section-v2 .col-lg-6:nth-child(2) {
+    animation: slideInFromRight 0.8s ease-out 0.3s both;
+}
+
+/* For sections without columns, apply to container */
+.about-section .container-xl > div:nth-child(1) {
+    animation: slideInFromLeft 0.8s ease-out 0.3s both;
+}
+
+.about-section .container-xl > div:nth-child(2) {
+    animation: slideInFromRight 0.8s ease-out 0.3s both;
 }
 
 @keyframes scale-in {
@@ -2464,6 +2971,216 @@ p {
 }
 
 /* ==========================================
+   UNIQUE BACKGROUND ANIMATIONS FOR ALL PAGES
+   ========================================== */
+
+/* About Section - Soft Floating Bubbles */
+.animated-bg-about {
+    background: linear-gradient(135deg, #0F1419 0%, #1A2332 50%, #162B3F 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 12s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-bg-about::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(52, 152, 219, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(232, 180, 86, 0.1) 0%, transparent 50%);
+    animation: floatBubbles 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.animated-bg-about::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(110deg, transparent 20%, rgba(52, 152, 219, 0.03) 50%, transparent 80%);
+    background-size: 500px 500px;
+    animation: slideShine 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.animated-bg-about > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Projects Section - Rotating Vortex */
+.animated-bg-projects {
+    background: linear-gradient(135deg, #162B3F 0%, #0F1419 50%, #1A2D42 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 14s ease infinite reverse;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-bg-projects::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    margin-left: -500px;
+    margin-top: -500px;
+    background: 
+        conic-gradient(
+            from 0deg,
+            rgba(52, 152, 219, 0.15),
+            rgba(232, 180, 86, 0.1),
+            rgba(0, 212, 170, 0.08),
+            rgba(52, 152, 219, 0.15)
+        );
+    animation: rotateVortex 30s linear infinite;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.animated-bg-projects::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(52, 152, 219, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 75% 25%, rgba(232, 180, 86, 0.06) 0%, transparent 40%);
+    animation: pulseGradient 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.animated-bg-projects > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Contact Section - Wave Patterns */
+.animated-bg-contact {
+    background: linear-gradient(135deg, #0F1419 0%, #1A2D42 50%, #162B3F 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 16s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-bg-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(0deg, transparent 0%, rgba(52, 152, 219, 0.05) 25%, transparent 50%, rgba(232, 180, 86, 0.04) 75%, transparent 100%);
+    background-size: 100% 200px;
+    animation: waveMotion 10s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.animated-bg-contact::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 100px,
+            rgba(52, 152, 219, 0.05) 100px,
+            rgba(52, 152, 219, 0.05) 200px
+        );
+    animation: slideDiagonal 20s linear infinite;
+    pointer-events: none;
+}
+
+.animated-bg-contact > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Unique Animation Keyframes */
+@keyframes floatBubbles {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(50px, -60px) scale(1.1);
+    }
+    50% {
+        transform: translate(-40px, 40px) scale(0.95);
+    }
+    75% {
+        transform: translate(80px, 30px) scale(1.05);
+    }
+}
+
+@keyframes slideShine {
+    0% {
+        background-position: -500px 0;
+    }
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+@keyframes rotateVortex {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes pulseGradient {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes waveMotion {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 0 -200px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes slideDiagonal {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(200px, 200px);
+    }
+}
+
+/* ==========================================
    UTILITY CLASSES
    ========================================== */
 
@@ -2473,4 +3190,150 @@ p {
 
 .text-muted {
     color: var(--text-secondary);
+}
+
+/* ==========================================
+   LIGHTBOX MODAL
+   ========================================== */
+
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide navbar when lightbox is active */
+.lightbox-modal.active ~ nav,
+.lightbox-modal.active {
+    z-index: 2000;
+}
+
+body.lightbox-open nav {
+    display: none;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideInUp 0.4s ease-out;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(52, 152, 219, 0.3);
+    object-fit: contain;
+}
+
+.lightbox-title {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 50px;
+    right: 40px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #E74C3C, #C0392B);
+    background-size: 200% 200%;
+    border: 3px solid white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2000;
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+    line-height: 1;
+    animation: closeBtnGlow 2s ease-in-out infinite, closeBtnBg 3s ease infinite;
+}
+
+@keyframes closeBtnGlow {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5), 0 0 20px rgba(52, 152, 219, 0.3);
+    }
+    50% {
+        box-shadow: 0 12px 35px rgba(52, 152, 219, 0.8), 0 0 40px rgba(232, 180, 86, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+}
+
+@keyframes closeBtnBg {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.lightbox-close:hover {
+    background: linear-gradient(135deg, #E8B456, #3498DB);
+    transform: scale(1.15) rotate(90deg);
+    box-shadow: 0 12px 35px rgba(52, 152, 219, 0.7), 0 0 30px rgba(232, 180, 86, 0.5), inset 0 0 25px rgba(255, 255, 255, 0.3);
+    animation: closeBtnGlow 1s ease-in-out infinite;
+}
+
+.lightbox-close:active {
+    transform: scale(0.95) rotate(90deg);
+}
+
+.lightbox-trigger {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-trigger:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95%;
+    }
+
+    .lightbox-content img {
+        max-height: 70vh;
+    }
+
+    .lightbox-title {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 35px;
+        width: 50px;
+        height: 50px;
+    }
 }
